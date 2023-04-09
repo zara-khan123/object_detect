@@ -1,6 +1,6 @@
 body{
     background-size: cover;
-   
+    font-family: 'Quicksand', sans-serif;
 }
 .heading
 {
@@ -31,4 +31,14 @@ canvas{
     margin-top: 10px;
     border-radius: 10px;
   
+}
+
+#index
+{
+    width:1000px;
+    border-radius: 50px;
+    border-color: #1034A6;
+    border-width: 10px;
+    font-size: 30px;
+    font-family: 'Quicksand', sans-serif;
 }
