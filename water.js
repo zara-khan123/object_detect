@@ -5,6 +5,7 @@ function home()
 
 img = "";
 status = "";
+object = [];
 
 function preload()
 {
@@ -28,14 +29,31 @@ function modelLoaded()
 
 function draw()
 {
+   
     image(img, 0, 0, 640, 420);
+
+    if(status != "")
+    {
+        for(i = 0; i < object.length; i++)
+        {
+
+        document.getElementById("status").innerHTML = "Status : Object Detected";
+        fill("#FF0000");
+        percent = floor(object[i].confidence * 100);
+        text(object[i].label + " " + percent + "%", object[i].x, object[i].y);
+        noFill();
+        stroke("#FF0000");
+        rect(object[i].x, object[i].y, object[i].width, object[i].height);
+    }
+    }
+    /*
     fill("#84C3BE");
     text("WATER BOTTLE" , 110, 50);
     textSize(20);
     textStyle(BOLD);
     noFill();
     stroke("#000000");
-    rect(110, 30, 350, 380);
+    rect(110, 30, 350, 380);*/
 
    
 }

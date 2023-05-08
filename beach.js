@@ -5,6 +5,7 @@ function home()
 
 img = "";
 status = "";
+object = [];
 
 function preload()
 {
@@ -29,13 +30,30 @@ function modelLoaded()
 function draw()
 {
     image(img, 0, 0, 640, 420);
+
+    if(status != "")
+    {
+        for(i = 0; i < object.length; i++)
+        {
+
+        document.getElementById("status").innerHTML = "Status : Object Detected";
+        fill("#FF0000");
+        percent = floor(object[i].confidence * 100);
+        text(object[i].label + " " + percent + "%", object[i].x, object[i].y);
+        noFill();
+        stroke("#FF0000");
+        rect(object[i].x, object[i].y, object[i].width, object[i].height);
+    }
+    }
+    
+    /*
     fill("#B2FFFF");
     text("BEACH" , 90, 65);
     textSize(20);
     textStyle(BOLD);
     noFill();
     stroke("#000000");
-    rect(30, 30, 600, 370);
+    rect(30, 30, 600, 370);*/
 
 }
 
